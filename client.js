@@ -14,7 +14,16 @@ let employees = [];
 
 function deleteRow(){
     console.log('delete');
+
+    //testing .text() as a getter
+    //"it returns the text content of all matched elements"
+    let deletedSal = $(this).siblings('#addedSalary').text();
+    //let text = el.text();
+    console.log(deletedSal);
+    
+
     $(this).closest('#addedRow').remove();
+    
 }
 
 function addEmployee(){
@@ -62,8 +71,8 @@ function addEmployee(){
             <td class="addedContent">${lastName}</td>
             <td class="addedContent">${idNumber}</td>
             <td class="addedContent">${jobTitle}</td>
-            <td class="addedContent">${annualSalary}</td>
-            <td><button id="deleteBtn" class="addedContent">Delete</button></td>
+            <td id="addedSalary">${annualSalary}</td>
+            <td id="deleteBtn"><button class="addedContent">Delete</button></td>
         </tr>
     `)
 
