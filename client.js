@@ -14,7 +14,22 @@ let employees = [];
 
 function addEmployee(){
     console.log('button');
+    //store user input into variables 
+    let employeeFirstName = $('#firstNameInput').val();
+    let lastName = $('#lastNameInput').val();
+    let idNumber = $('#idNumberInput').val();
+    let jobTitle = $('#jobTitleInput').val();
+    let annualSalary = $('#annualSalaryInput').val();
+    
+    //check to make sure input fields are not empty
+    if(employeeFirstName !=''&& lastName !=''&& idNumber !='' && jobTitle !='' && annualSalary !='') {
+        //call createEmployee function w user input
+        createEmployee(employeeFirstName, lastName, idNumber, jobTitle, annualSalary);
+    } // end of conditional
+    
+    
 }// end of addEmployee function
+
 
 function createEmployee(employeeFirstName, lastName, idNumber, jobTitle, annualSalary){
     console.log('in the createEmployee function', employeeFirstName, lastName, idNumber, jobTitle, annualSalary )
