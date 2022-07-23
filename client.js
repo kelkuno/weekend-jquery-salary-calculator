@@ -45,6 +45,9 @@ function addEmployee(){
     //test getMonthly();
     console.log(getMonthly());
 
+    //append monthly costs to DOM
+    displayMonthly();
+
     //empty input fields
     $('#firstNameInput').val('');
     $('#lastNameInput').val('');
@@ -66,6 +69,14 @@ function addEmployee(){
 
     
 }// end of addEmployee function
+
+function displayMonthly(){
+    let monthly = getMonthly();
+    //tested out monthly value
+    console.log('in the displayMonthly', monthly);
+    //append monthly to DOM
+    $('#monthlyBudget').append(monthly);
+}
 
 function getMonthly(){
     let totalSum = getSum();
