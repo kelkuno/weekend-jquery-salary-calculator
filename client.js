@@ -6,11 +6,15 @@ function readyNow(){
     //console.log('jquery works!');
     //click events:
     $('#addEmployeeButton').on('click', addEmployee);
-
+    $('#displayEmployee').on('click', deleteRow);
 
 };
 
 let employees = [];
+
+function deleteRow(){
+    console.log('delete');
+}
 
 function addEmployee(){
     // let el = $('#displayEmployee');
@@ -55,7 +59,7 @@ function addEmployee(){
             <td>${idNumber}</td>
             <td>${jobTitle}</td>
             <td>${annualSalary}</td>
-            <td> </td>
+            <td><button id="deleteBtn">Delete</button></td>
         </tr>
     `)
 
