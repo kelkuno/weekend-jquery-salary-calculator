@@ -6,7 +6,7 @@ function readyNow(){
     //console.log('jquery works!');
     //click events:
     $('#addEmployeeButton').on('click', addEmployee);
-    $('#displayEmployee').on('click', deleteRow);
+    $('#displayEmployee').on('click', '#deleteBtn', deleteRow);
 
 };
 
@@ -14,6 +14,7 @@ let employees = [];
 
 function deleteRow(){
     console.log('delete');
+    $(this).closest('#addedRow').remove();
 }
 
 function addEmployee(){
@@ -53,13 +54,13 @@ function addEmployee(){
     
     //append data onto DOM
     $('#displayEmployee').append(`
-        <tr>
-            <td>${employeeFirstName}</td>
-            <td>${lastName}</td>
-            <td>${idNumber}</td>
-            <td>${jobTitle}</td>
-            <td>${annualSalary}</td>
-            <td><button id="deleteBtn">Delete</button></td>
+        <tr id="addedRow">
+            <td class="addedContent">${employeeFirstName}</td>
+            <td class="addedContent">${lastName}</td>
+            <td class="addedContent">${idNumber}</td>
+            <td class="addedContent">${jobTitle}</td>
+            <td class="addedContent">${annualSalary}</td>
+            <td><button id="deleteBtn" class="addedContent">Delete</button></td>
         </tr>
     `)
 
