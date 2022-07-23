@@ -22,13 +22,17 @@ function addEmployee(){
     let lastName = $('#lastNameInput').val();
     let idNumber = $('#idNumberInput').val();
     let jobTitle = $('#jobTitleInput').val();
-    let annualSalary = $('#annualSalaryInput').val();
+    let annualSalary = parseInt($('#annualSalaryInput').val());
     
     //check to make sure input fields are not empty
     if(employeeFirstName !=''&& lastName !=''&& idNumber !='' && jobTitle !='' && annualSalary !='') {
         //call createEmployee function w user input
         createEmployee(employeeFirstName, lastName, idNumber, jobTitle, annualSalary);
     } // end of conditional
+
+    //get sum of array
+    getSum();
+    console.log(getSum());
 
     //empty input fields
     $('#firstNameInput').val('');
@@ -52,6 +56,14 @@ function addEmployee(){
     
 }// end of addEmployee function
 
+function getSum(){
+    //sum up all the employees in the array w a loop
+    let sum = 0 ;
+    for(let i=0; i<employees.length; i++) {
+        sum += employees[i].annualSalary;
+    }//end of loop
+    return sum;
+} // end oof getSum function
 
 function createEmployee(employeeFirstName, lastName, idNumber, jobTitle, annualSalary){
     console.log('in the createEmployee function', employeeFirstName, lastName, idNumber, jobTitle, annualSalary )
