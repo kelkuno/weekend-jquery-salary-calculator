@@ -84,7 +84,7 @@ function displayMonthly(){
     }//end of under budget monthly
     else if(monthly > 20000){
         $('#monthlyBudget').append(`
-        <h3 id="overBudget">${monthly}</h3>
+        <h3 class="overBudget">${monthly}</h3>
         `); 
     } 
 }
