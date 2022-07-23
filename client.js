@@ -32,7 +32,13 @@ function addEmployee(){
 
     //get sum of array
     getSum();
+    //test getSum function
     console.log(getSum());
+
+    //use Sum to calculate monthly totals
+    getMonthly();
+    //test getMonthly();
+    console.log(getMonthly());
 
     //empty input fields
     $('#firstNameInput').val('');
@@ -55,6 +61,15 @@ function addEmployee(){
 
     
 }// end of addEmployee function
+
+function getMonthly(){
+    let totalSum = getSum();
+    const months = 12;
+    let monthlyTotal = totalSum / months;
+
+    return monthlyTotal;
+} // end of getMonthly function
+
 
 function getSum(){
     //sum up all the employees in the array w a loop
