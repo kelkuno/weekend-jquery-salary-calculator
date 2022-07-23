@@ -71,11 +71,22 @@ function addEmployee(){
 }// end of addEmployee function
 
 function displayMonthly(){
+    //empty DOM
+    $('#monthlyBudget').empty();
     let monthly = getMonthly();
     //tested out monthly value
     console.log('in the displayMonthly', monthly);
-    //append monthly to DOM
-    $('#monthlyBudget').append(monthly);
+    //append monthly to DOM w/ two conditions:
+    if(monthly <= 20000){
+        $('#monthlyBudget').append(`
+        <h3 id="budget">${monthly}</h3>
+        `); 
+    }//end of under budget monthly
+    else if(monthly > 20000){
+        $('#monthlyBudget').append(`
+        <h3 id="overBudget">${monthly}</h3>
+        `); 
+    } 
 }
 
 function getMonthly(){
