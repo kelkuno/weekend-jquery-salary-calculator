@@ -11,20 +11,28 @@ function readyNow(){
 };
 
 let employees = [];
+let deletedSum = 0;
 
 function deleteRow(){
     console.log('delete');
-
     //testing .text() as a getter
     //"it returns the text content of all matched elements"
-    let deletedSal = $(this).siblings('#addedSalary').text();
-    //let text = el.text();
-    console.log(deletedSal);
-    
-
+    //storing the string of the annualSalary in deletedSal variable
+    deletedSum = $(this).siblings('#addedSalary').text();
+    //let numberSal = parseInt(deletedSum);
+    //console.log(numberSal);
+    console.log(deletedSum);
     $(this).closest('#addedRow').remove();
-    
+
+    getSum();
+    getMonthly();
+    displayMonthly();
+
+    return true;
 }
+
+//////////////////////Kelsey Note: deletedRow does not return a number but the you can access deleted variable globally 
+
 
 function addEmployee(){
     // let el = $('#displayEmployee');
@@ -103,6 +111,9 @@ function getMonthly(){
     const months = 12;
     let monthlyTotal = totalSum / months;
 
+    //TEST try calling display Monthly again
+    //displayMonthly(); (caused an infinate loop)
+
     return monthlyTotal;
 } // end of getMonthly function
 
@@ -110,9 +121,13 @@ function getMonthly(){
 function getSum(){
     //sum up all the employees in the array w a loop
     let sum = 0 ;
+   // let deletedSum = deleteRow();
     for(let i=0; i<employees.length; i++) {
         sum += employees[i].annualSalary;
     }//end of loop
+    //subtract deletedSum from Sum
+    sum = sum - deletedSum;
+    console.log('in get sum function:', sum);
     return sum;
 } // end oof getSum function
 
