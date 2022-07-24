@@ -81,7 +81,7 @@ function addEmployee(){
             <td class="addedContent">${idNumber}</td>
             <td class="addedContent">${jobTitle}</td>
             <td id="addedSalary">${annualSalary}</td>
-            <td id="deleteBtn"><button class="addedContent">Delete</button></td>
+            <td id="deleteBtn"><button class="addedContent btn">Delete</button></td>
         </tr>
     `)
 
