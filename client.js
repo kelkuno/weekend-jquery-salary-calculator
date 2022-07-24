@@ -14,6 +14,7 @@ let employees = [];
 let deletedSum = 0;
 
 function deleteRow(){
+  
     console.log('delete');
     //testing .text() as a getter
     //"it returns the text content of all matched elements"
@@ -143,5 +144,5 @@ function createEmployee(employeeFirstName, lastName, idNumber, jobTitle, annualS
     employees.push(employee);
 }// end of newEmployee Function
 
-createEmployee('Kelsey ', 'Kuno', 78, 'driver', 100);
+//createEmployee('Kelsey ', 'Kuno', 78, 'driver', 100);
 console.log(employees);
