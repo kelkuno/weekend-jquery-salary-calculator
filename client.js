@@ -32,9 +32,6 @@ function deleteRow(){
     return true;
 }
 
-//////////////////////Kelsey Note: deletedRow does not return a number but the you can access deleted variable globally 
-
-
 function addEmployee(){
     // let el = $('#displayEmployee');
     // el.empty();
@@ -48,9 +45,20 @@ function addEmployee(){
     let annualSalary = parseInt($('#annualSalaryInput').val());
     
     //check to make sure input fields are not empty
-    if(employeeFirstName !=''&& lastName !=''&& idNumber !='' && jobTitle !='' && annualSalary !='') {
+    if(employeeFirstName !='' && lastName !='' && idNumber !='' && jobTitle !='' && annualSalary !='') {
         //call createEmployee function w user input
         createEmployee(employeeFirstName, lastName, idNumber, jobTitle, annualSalary);
+        //append data onto DOM
+        $('#displayEmployee').append(`
+        <tr id="addedRow">
+            <td class="addedContent">${employeeFirstName}</td>
+            <td class="addedContent">${lastName}</td>
+            <td class="addedContent">${idNumber}</td>
+            <td class="addedContent">${jobTitle}</td>
+            <td id="addedSalary">${annualSalary}</td>
+            <td id="deleteBtn"><button class="addedContent btn">Delete</button></td>
+        </tr>
+    `)
     } // end of conditional
 
     //get sum of array
@@ -74,16 +82,16 @@ function addEmployee(){
     $('#annualSalaryInput').val('');
     
     //append data onto DOM
-    $('#displayEmployee').append(`
-        <tr id="addedRow">
-            <td class="addedContent">${employeeFirstName}</td>
-            <td class="addedContent">${lastName}</td>
-            <td class="addedContent">${idNumber}</td>
-            <td class="addedContent">${jobTitle}</td>
-            <td id="addedSalary">${annualSalary}</td>
-            <td id="deleteBtn"><button class="addedContent btn">Delete</button></td>
-        </tr>
-    `)
+    // $('#displayEmployee').append(`
+    //     <tr id="addedRow">
+    //         <td class="addedContent">${employeeFirstName}</td>
+    //         <td class="addedContent">${lastName}</td>
+    //         <td class="addedContent">${idNumber}</td>
+    //         <td class="addedContent">${jobTitle}</td>
+    //         <td id="addedSalary">${annualSalary}</td>
+    //         <td id="deleteBtn"><button class="addedContent btn">Delete</button></td>
+    //     </tr>
+    // `)
 
     
 }// end of addEmployee function
